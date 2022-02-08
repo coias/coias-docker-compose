@@ -1,0 +1,22 @@
+version: '3'
+
+# todo 
+# volumeの設定
+# portの設定
+# imageのupload etc...
+
+services:
+  front-app:
+    image: coias-front-app:latest
+    ports:
+      - 127.0.0.1:3000:3000
+    volumes:
+      - coias_data:/opt/
+
+  back-app:
+    image: coias-back-app:latest
+    volumes:
+      - coias_data:/opt/
+
+volumes:
+  coias_data:
