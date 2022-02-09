@@ -2,7 +2,7 @@
 
 coiasの開発環境およびWebアプリを構築
 
-## 環境構築
+## 環境構築(image-build)
 
 ### coias-docker-composeを任意のディレクトリに展開する
 
