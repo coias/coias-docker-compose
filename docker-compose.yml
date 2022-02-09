@@ -1,22 +1,24 @@
 version: '3'
 
-# todo 
-# volumeの設定
-# portの設定
-# imageのupload etc...
-
 services:
   front-app:
-    image: coias-front-app:latest
+    container_name: coias-front-container
+    build:
+      context: ./coias_electron/
+      dockerfile: ./dockerfile
+    image: coias-front-app
     ports:
       - 127.0.0.1:3000:3000
     volumes:
-      - coias_data:/opt/
+      - ./COIAS_program_github/SubaruHSC:/opt/SubaruHSC
 
   back-app:
-    image: coias-back-app:latest
+    container_name: coias-back-container
+    build:
+      context: ./COIAS_program_github/
+      dockerfile: ./Dockerfile
+    image: coias-back-app
+    ports:
+      - 127.0.0.1:8000:8000
     volumes:
-      - coias_data:/opt/
-
-volumes:
-  coias_data:
+      - ./COIAS_program_github/SubaruHSC:/opt/SubaruHSC
