@@ -30,10 +30,3 @@ git clone https://github.com/aizulab/coias-docker-compose.git
 ```
 docker-compose up
 ```
-
-### コードを変更した場合
-
-```
-docker-compose build --no-cache
-docker-compose up
-```
