@@ -61,3 +61,10 @@ Remote Containers(vscode拡張機能)にdocker-composeを読み込ませて、do
 [Get started with development Containers in Visual Studio Code](https://code.visualstudio.com/docs/remote/containers-tutorial)
 
 [既存のDocker開発環境をVS CodeのRemote Developmentで開発できるようにしてみた | DevelopersIO](https://dev.classmethod.jp/articles/add-vs-code-remote-development-settings-to-existing-docker-environment/)
+
+### コードを変更した場合のビルド方法
+
+```
+docker-compose build --no-cache
+docker-compose up
+```
