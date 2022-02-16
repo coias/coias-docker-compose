@@ -5,18 +5,16 @@ services:
     container_name: coias-front-container
     build:
       context: ./coias_electron/
-      dockerfile: ./dockerfile
+      dockerfile: ./Docker/Dockerfile
     image: coias-front-app
     ports:
       - 127.0.0.1:3000:3000
-    volumes:
-      - ./COIAS_program_github/SubaruHSC:/opt/SubaruHSC
 
   back-app:
     container_name: coias-back-container
     build:
       context: ./COIAS_program_github/
-      dockerfile: ./Dockerfile
+      dockerfile: ./Docker/Dockerfile
     image: coias-back-app
     ports:
       - 127.0.0.1:8000:8000
