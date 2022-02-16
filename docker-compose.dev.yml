@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  front-dev-app:
+    container_name: coias-front-dev-container
+    build:
+      context: ./coias_electron/
+      dockerfile: ./Docker/Dockerfile.dev
+    image: coias-front-dev-app
+    ports:
+      - 127.0.0.1:3000:3000
+    tty: true
+    volumes:
+      - ./coias_electron:/opt/coias_electron
+
+  back-dev-app:
+    container_name: coias-back-dev-container
+    build:
+      context: ./COIAS_program_github/
+      dockerfile: ./Docker/Dockerfile.dev
+    image: coias-back-dev-app
+    ports:
+      - 127.0.0.1:8000:8000
+    tty: true
+    volumes:
+      - ./COIAS_program_github:/opt/COIAS_program_github
+      - ./COIAS_program_github/SubaruHSC:/opt/SubaruHSC
+      - ./COIAS_program_github/data:/root/.coias
