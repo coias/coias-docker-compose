@@ -61,6 +61,13 @@ Remote Containers(vscode拡張機能)にdocker-composeを読み込ませて、do
 4. vscodeを別ウインドウで開き操作を繰り返す
 5. 「COIAS_program_github」フォルダーを開く
 
+
+imagehostは別途立ち上げる
+
+```
+docker-compose -f ./docker-compose.dev.yml up imagehost
+```
+
 #### 参考
 
 [Get started with development Containers in Visual Studio Code](https://code.visualstudio.com/docs/remote/containers-tutorial)

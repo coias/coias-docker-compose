@@ -26,3 +26,11 @@ services:
       - ./COIAS_program_github:/opt/COIAS_program_github
       - ./COIAS_program_github/SubaruHSC:/opt/SubaruHSC
       - ./COIAS_program_github/data:/root/.coias
+
+  imagehost:
+    image: "nginx:latest"
+    volumes:
+      - "./COIAS_program_github/SubaruHSC:/usr/share/nginx/html"
+      - "./nginx:/etc/nginx"
+    ports:
+      - "8088:80"
