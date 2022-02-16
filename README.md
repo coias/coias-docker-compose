@@ -1,16 +1,16 @@
-# coias-docker-compose
+coias-docker-compose
 
 coiasの開発環境およびWebアプリを構築
 
-## 環境構築(image-build)
+# 環境構築(image-build)
 
-### coias-docker-composeを任意のディレクトリに展開する
+## coias-docker-composeを任意のディレクトリに展開する
 
 ```
 git clone https://github.com/aizulab/coias-docker-compose.git
 ```
 
-### ディレクトリ構成
+## ディレクトリ構成
 
 下記のリポジトリをディレクトリに配置する
 
@@ -34,23 +34,23 @@ git clone https://github.com/aizulab/coias_electron.git
 git clone https://github.com/Mizunanari/COIAS_program_github.git
 ```
 
-※ private の場合は認証の必要あり
+※ private repository の場合は認証の必要あり
 
-### vscode での操作
+## vscode での操作
 
-* 必要アプリ
+下記をインストールする
 
-[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)
+**必要アプリ**
 
-[Docker](https://www.docker.com/products/docker-desktop)
+* [Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)
 
-* 必要プラグイン
+* [Docker](https://www.docker.com/products/docker-desktop)
 
-[Remote - Containers - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+**必要プラグイン**
 
-上記をインストールする
+* [Remote - Containers - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-### コンテナに接続
+## コンテナに接続
 
 Remote Containers(vscode拡張機能)にdocker-composeを読み込ませて、dockerを起動します。
 コンテナは「coias-front-app」と「coias-back-app」の2種類を起動します。
@@ -59,22 +59,24 @@ Remote Containers(vscode拡張機能)にdocker-composeを読み込ませて、do
 2. Open Folder in Container ...
 3. 「coias_electron」フォルダーを選択
 4. vscodeを別ウインドウで開き操作を繰り返す
-5. 「COIAS_program_github」フォルダーを開く
+5. 「COIAS_program_github」フォルダーを選択
 
-
-imagehostは別途立ち上げる
+### imagehostは別途立ち上げる
 
 ```
 docker-compose -f ./docker-compose.dev.yml up imagehost
 ```
 
-#### 参考
+### 参考
 
 [Get started with development Containers in Visual Studio Code](https://code.visualstudio.com/docs/remote/containers-tutorial)
 
 [既存のDocker開発環境をVS CodeのRemote Developmentで開発できるようにしてみた | DevelopersIO](https://dev.classmethod.jp/articles/add-vs-code-remote-development-settings-to-existing-docker-environment/)
 
-### コードを変更した場合のビルド方法
+# 備考
+
+キャッシュを使用せずにbuildするコマンド。
+git clone がスキップされない。
 
 ```
 docker-compose build --no-cache
