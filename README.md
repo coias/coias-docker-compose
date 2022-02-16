@@ -52,9 +52,14 @@ git clone https://github.com/Mizunanari/COIAS_program_github.git
 
 ### コンテナに接続
 
-vscodeの左下にある緑色のリモートウインドウを開きます。
 Remote Containers(vscode拡張機能)にdocker-composeを読み込ませて、dockerを起動します。
 コンテナは「coias-front-app」と「coias-back-app」の2種類を起動します。
+
+1. vscodeの左下にある緑色のリモートウインドウを開きます。
+2. Open Folder in Container ...
+3. 「coias_electron」フォルダーを選択
+4. vscodeを別ウインドウで開き操作を繰り返す
+5. 「COIAS_program_github」フォルダーを開く
 
 #### 参考
 
