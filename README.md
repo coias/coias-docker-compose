@@ -29,6 +29,9 @@ docker,docker-composeを使用し、フロントアプリ、バックアプリ�
 * docker engine
 * docker compose
 
+ubuntuの場合は下記のスクリプトが使用できる。
+dockerを使用する際に`sudo`が必要になる。
+
 [UbuntuにDockerEngineをインストールする| Dockerドキュメント](https://docs.docker.com/engine/install/ubuntu/#upgrade-docker-after-using-the-convenience-script)
 
 [Docker Compose のインストール — Docker-docs-ja 19.03 ドキュメント](https://docs.docker.jp/compose/install.html#linux-compose)
