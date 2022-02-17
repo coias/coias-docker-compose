@@ -1,16 +1,51 @@
-coias-docker-compose
+# coias-docekr-compose(image-build)
 
-coiasの開発環境およびWebアプリを構築
+coiasの環境を構築します。
 
-# 環境構築(image-build)
+docker,docker-composeを使用し、フロントアプリ、バックアプリ、API、webサーバーを自動実行します。
 
-## coias-docker-composeを任意のディレクトリに展開する
+## docker-composeファイルの違い
+
+* docker-compose.yml
+
+実行用のdocker-composeです。
+
+* docker-compose.dev.yml
+
+開発用のdocker-composeです。
+
+## 必要アプリケーション
+
+下記をインストールすること。
+
+### mac windownの場合
+
+* docker desktop
+
+[Docker Desktop for Mac and Windows | Docker](https://www.docker.com/products/docker-desktop)
+
+### Linux(例：ubuntu)の場合
+
+* docker engine
+* docker compose
+
+[UbuntuにDockerEngineをインストールする| Dockerドキュメント](https://docs.docker.com/engine/install/ubuntu/#upgrade-docker-after-using-the-convenience-script)
+
+[Docker Compose のインストール — Docker-docs-ja 19.03 ドキュメント](https://docs.docker.jp/compose/install.html#linux-compose)
+
+# 開発環境構築(docker-compose.dev.yml)
+
+ここでは開発環境の構築について解説します。
+
+1. コードのclone
+
+coias-docker-composeを任意のディレクトリに展開する
 
 ```
 git clone https://github.com/aizulab/coias-docker-compose.git
 ```
 
-## ディレクトリ構成
+2. ディレクトリ構成
 
 下記のリポジトリをディレクトリに配置する
 
@@ -23,6 +58,7 @@ coias-docker-compose
 ├── COIAS_program_github   <-- clone
 ├── coias_electron         <-- clone
 ├── docker-compose.yml
+├── docker-compose.dev.yml
 └── READEME.md
 ```
 
@@ -36,7 +72,7 @@ git clone https://github.com/Mizunanari/COIAS_program_github.git
 
 ※ private repository の場合は認証の必要あり
 
-## vscode での操作
+3. vscode での操作
 
 下記をインストールする
 
@@ -50,18 +86,18 @@ git clone https://github.com/Mizunanari/COIAS_program_github.git
 
 * [Remote - Containers - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-## コンテナに接続
+4. コンテナに接続
 
 Remote Containers(vscode拡張機能)にdocker-composeを読み込ませて、dockerを起動します。
 コンテナは「coias-front-app」と「coias-back-app」の2種類を起動します。
 
-1. vscodeの左下にある緑色のリモートウインドウを開きます。
-2. Open Folder in Container ...
-3. 「coias_electron」フォルダーを選択
-4. vscodeを別ウインドウで開き操作を繰り返す
-5. 「COIAS_program_github」フォルダーを選択
+      1. vscodeの左下にある緑色のリモートウインドウを開きます。
+      2. Open Folder in Container ...
+      3. 「coias_electron」フォルダーを選択
+      4. vscodeを別ウインドウで開き操作を繰り返す
+      5. 「COIAS_program_github」フォルダーを選択
 
-### imagehostは別途立ち上げる
+5. imagehostを別途立ち上げる
 
 ```
 docker-compose -f ./docker-compose.dev.yml up imagehost
@@ -72,6 +108,22 @@ docker-compose -f ./docker-compose.dev.yml up imagehost
 [Get started with development Containers in Visual Studio Code](https://code.visualstudio.com/docs/remote/containers-tutorial)
 
 [既存のDocker開発環境をVS CodeのRemote Developmentで開発できるようにしてみた | DevelopersIO](https://dev.classmethod.jp/articles/add-vs-code-remote-development-settings-to-existing-docker-environment/)
+
+# 環境構築(docker-compose.yml)
+
+1. コードのclone
+
+coias-docker-composeを任意のディレクトリに展開する
+
+```
+git clone https://github.com/aizulab/coias-docker-compose.git
+```
+
+2. docker-compose up
+
+```
+dcoekr-compose up
+```
 
 # 備考
 
