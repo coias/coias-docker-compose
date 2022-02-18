@@ -8,6 +8,9 @@
 
 ## Linux(例：ubuntu)の場合
 
+ubuntuの場合は下記のスクリプトが使用できる。
+dockerを使用する際に`sudo`が必要になる。
+
 * docker engine
 * docker compose
 
