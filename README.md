@@ -42,14 +42,14 @@ git clone https://github.com/aizulab/coias-docker-compose.git
 
 下記のリポジトリをディレクトリに配置する
 
-https://github.com/aizulab/coias_electron.git
+https://github.com/aizulab/coias-front-app.git
 
-https://github.com/Mizunanari/COIAS_program_github.git
+https://github.com/aizulab/COIAS_program_github.git
 
 ```
 coias-docker-compose
 ├── COIAS_program_github   <-- clone
-├── coias_electron         <-- clone
+├── coias-front-app         <-- clone
 ├── docker-compose.yml
 ├── docker-compose.dev.yml
 └── READEME.md
@@ -59,8 +59,8 @@ coias-docker-compose
 
 ```
 cd coias-docker-compose
-git clone https://github.com/aizulab/coias_electron.git
-git clone https://github.com/Mizunanari/COIAS_program_github.git
+git clone https://github.com/aizulab/coias-front-app.git
+git clone https://github.com/aizulab/COIAS_program_github.git
 ```
 
 ※ private repository の場合は認証の必要あり

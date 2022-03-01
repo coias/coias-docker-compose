@@ -4,7 +4,7 @@ services:
   front-app:
     container_name: coias-front-container
     build:
-      context: ./coias_electron/
+      context: ./coias-front-app/
       dockerfile: ./Docker/Dockerfile
     image: coias-front-app
     ports:
