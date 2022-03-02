@@ -4,15 +4,15 @@ services:
   front-dev-app:
     container_name: coias-front-dev-container
     build:
-      context: ./coias_electron/
+      context: ./coias-front-app/
       dockerfile: ./Docker/Dockerfile.dev
     image: coias-front-dev-app
     ports:
       - 127.0.0.1:3000:3000
     tty: true
     volumes:
-      - ./coias_electron:/opt/coias_electron
-      - node_modules_volume:/opt/coias_electron/node_modules
+      - ./coias-front-app/:/opt/coias-front-app
+      - node_modules_volume:/opt/coias-front-app/node_modules
 
   back-dev-app:
     container_name: coias-back-dev-container
