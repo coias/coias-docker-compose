@@ -12,6 +12,7 @@ services:
     tty: true
     volumes:
       - ./coias_electron:/opt/coias_electron
+      - node_modules_volume:/opt/coias_electron/node_modules
 
   back-dev-app:
     container_name: coias-back-dev-container
@@ -34,3 +35,6 @@ services:
       - "./nginx:/etc/nginx"
     ports:
       - "8088:80"
+
+volumes:
+  node_modules_volume:
