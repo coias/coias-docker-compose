@@ -1,0 +1,30 @@
+server {
+    listen       443 ssl;
+
+    ssl on;
+    ssl_certificate ;
+    ssl_certificate_key ;
+
+    server_name  localhost;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index index.html;
+        autoindex on;
+    }
+
+    location /ws/ {
+      proxy_pass http://a2ke7fdqoxx049.iot.ap-northeast-1.amazonaws.com/mqtt  
+    }
+
+
+    location ~ ^.*/(?P<request_basename>[^/]+\.(bin))$ {
+        root /usr/share/nginx/html;
+        add_header Content-Disposition 'attachment; filename="$request_basename"';
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}

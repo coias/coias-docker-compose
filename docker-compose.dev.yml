@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  front-dev-app:
+    container_name: coias-front-dev-container
+    build:
+      context: ./coias-front-app/
+      dockerfile: ./Docker/Dockerfile.dev
+    image: coias-front-dev-app
+    ports:
+      - 127.0.0.1:3000:3000
+    tty: true
+    volumes:
+      - ./coias-front-app/:/opt/coias-front-app
+      - node_modules_volume:/opt/coias-front-app/node_modules
+
+  back-dev-app:
+    container_name: coias-back-dev-container
+    build:
+      context: ./COIAS_program_github/
+      dockerfile: ./Docker/Dockerfile.dev
+    image: coias-back-dev-app
+    ports:
+      - 127.0.0.1:8000:8000
+    tty: true
+    volumes:
+      - ./COIAS_program_github:/opt/COIAS_program_github
+      - nginx_tmp_images:/opt/tmp_images
+      - coias_hsc:/root/.coias
+
+  imagehost:
+    image: "nginx:latest"
+    volumes:
+      - "nginx_tmp_images:/usr/share/nginx/html"
+      - "./nginx:/etc/nginx"
+    ports:
+      - "8088:80"
+
+volumes:
+  node_modules_volume:
+  nginx_tmp_images:
+  coias_hsc:
+  conda_env:

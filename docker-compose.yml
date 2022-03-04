@@ -1,22 +1,14 @@
 version: '3'
 
 # todo 
-# volumeの設定
-# portの設定
-# imageのupload etc...
+# 1. coias用dockerアカウントの取得
+# 2. github リポジトリの設定
+# 3. image自動構築設定
+# 4. image pullを行うdocker-compose.ymlの作成
 
 services:
   front-app:
     image: coias-front-app:latest
-    ports:
-      - 127.0.0.1:3000:3000
-    volumes:
-      - coias_data:/opt/
 
   back-app:
     image: coias-back-app:latest
-    volumes:
-      - coias_data:/opt/
-
-volumes:
-  coias_data:
