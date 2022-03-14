@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 code coias-front-app
 code COIAS_program_github
