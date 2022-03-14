@@ -5,5 +5,5 @@ cd coias-docker-compose
 git clone https://github.com/aizulab/coias-front-app --depth 1
 git clone https://github.com/aizulab/COIAS_program_github --depth 1
 
-chmod +x code-clone
-./code-clone
+chmod +x code-open
+./code-open
