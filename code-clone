@@ -1,9 +1,9 @@
 #!/bin/bash
 
-git clone https://github.com/aizulab/coias-docker-compose --depth 1
+git clone https://github.com/aizulab/coias-docker-compose
 cd coias-docker-compose
-git clone https://github.com/aizulab/coias-front-app --depth 1
-git clone https://github.com/aizulab/COIAS_program_github --depth 1
+git clone https://github.com/aizulab/coias-front-app
+git clone https://github.com/aizulab/COIAS_program_github
 
 chmod +x code-open
 ./code-open
