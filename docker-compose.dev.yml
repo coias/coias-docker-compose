@@ -10,6 +10,7 @@ services:
     ports:
       - 127.0.0.1:3000:3000
     tty: true
+    platform: linux/x86_64
     volumes:
       - ./coias-front-app/:/opt/coias-front-app
       - node_modules_volume:/opt/coias-front-app/node_modules
@@ -23,6 +24,7 @@ services:
     ports:
       - 127.0.0.1:8000:8000
     tty: true
+    platform: linux/x86_64
     volumes:
       - ./COIAS_program_github:/opt/COIAS_program_github
       - nginx_tmp_images:/opt/tmp_images
@@ -40,4 +42,3 @@ volumes:
   node_modules_volume:
   nginx_tmp_images:
   coias_hsc:
-  conda_env:
