@@ -22,8 +22,17 @@ __todo__
 アプリケーションの実行のみを行う場合に使用します。  
 [実行用環境構築](./docs/実行用環境構築.md)
 
+```docker-compose up```
+
 ### docker-compose.dev.yml
 
 開発用のdocker-composeです。  
 アプリケーションの開発を行う場合に使用します。  
 [開発用環境構築](./docs/開発用環境構築.md)
+
+### docker-compose.build.yml
+
+実行用コンテナをビルドするためのdocker-composeです。
+docker hubにアップロードする際に使用します。
+
+```docker-compose up -f docker-compose.build.yml```

@@ -30,13 +30,13 @@ services:
       - nginx_tmp_images:/opt/tmp_images
       - coias_hsc:/root/.coias
 
-  imagehost:
+  imagehost-dev-app:
     image: "nginx:latest"
+    ports:
+      - "8088:80"
     volumes:
       - "nginx_tmp_images:/usr/share/nginx/html"
       - "./nginx:/etc/nginx"
-    ports:
-      - "8088:80"
 
 volumes:
   node_modules_volume:
