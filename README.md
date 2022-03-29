@@ -35,4 +35,4 @@ __todo__
 実行用コンテナをビルドするためのdocker-composeです。
 docker hubにアップロードする際に使用します。
 
-```docker-compose up -f docker-compose.build.yml```
+```docker-compose -f docker-compose.build.yml up```
