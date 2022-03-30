@@ -9,15 +9,6 @@ docker,docker-composeを使用し、フロントエンドアプリ、バック�
 
 ### docker-compose.yml
 
-※ 未完成
-
-__todo__
-
-1. coias用dockerアカウントの取得
-2. github リポジトリの設定
-3. image自動構築設定
-4. image pullを行うdocker-compose.ymlの作成
-
 実行用のdocker-composeです。  
 アプリケーションの実行のみを行う場合に使用します。  
 [実行用環境構築](./docs/実行用環境構築.md)
@@ -29,10 +20,3 @@ __todo__
 開発用のdocker-composeです。  
 アプリケーションの開発を行う場合に使用します。  
 [開発用環境構築](./docs/開発用環境構築.md)
-
-### docker-compose.build.yml
-
-実行用コンテナをビルドするためのdocker-composeです。
-docker hubにアップロードする際に使用します。
-
-```docker-compose -f docker-compose.build.yml up```
