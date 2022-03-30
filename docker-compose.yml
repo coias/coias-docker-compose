@@ -11,9 +11,6 @@ services:
 
   back-app:
     container_name: coias-back-container
-    build:
-      context: ./COIAS_program_github/
-      dockerfile: ./Docker/Dockerfile
     image: mizunanari/coias-back-dev-app:latest
     ports:
       - 127.0.0.1:8000:8000
