@@ -51,7 +51,7 @@ https://azure.microsoft.com/ja-jp/products/visual-studio-code/
 coias アプリケーションのクローン
 
 WSLで以下コマンドを実行  
-```curl -sfhttps://raw.githubusercontent.com/aizulab/coias-docker-compose/main/code-clone | sh -s```
+```curl -sfhttps://raw.githubusercontent.com/coias/coias-docker-compose/main/code-clone | sh -s```
 
 フロントエンド「coias-front-app  
 バックエンド「COIAS_program_github」のコード群がVScodeで開かれる
