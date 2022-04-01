@@ -1,4 +1,4 @@
 #!/bin/bash
 
 code coias-front-app
-code COIAS_program_github
+code coias-back-app

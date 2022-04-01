@@ -18,7 +18,7 @@ services:
   back-dev-app:
     container_name: coias-back-dev-container
     build:
-      context: ./COIAS_program_github/
+      context: ./coias-back-app/
       dockerfile: ./Docker/Dockerfile.dev
     image: coias-back-dev-app
     ports:
@@ -26,7 +26,7 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - ./COIAS_program_github:/opt/COIAS_program_github
+      - ./coias-back-app:/opt/coias-back-app
       - nginx_tmp_images:/opt/tmp_images
       - coias_hsc:/root/.coias
 
