@@ -36,7 +36,7 @@ services:
       - "8088:80"
     volumes:
       - "nginx_tmp_images:/usr/share/nginx/html"
-      - "./nginx:/etc/nginx"
+      - "./imagehost/nginx:/etc/nginx"
 
 volumes:
   node_modules_volume:
