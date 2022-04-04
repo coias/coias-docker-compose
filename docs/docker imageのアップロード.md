@@ -1,0 +1,22 @@
+# docker imageのアップロード方法
+
+1. coias-docker-composeフォルダに移動する。
+2. ```docker compose -f docker-compose.build.yml build```を実行
+3. 下記URLを参考にdockerでログインする。
+
+Dockerでログインする対象はcoiasアカウントだが、自分のgithubアカウントがcoiasに所属し、権限を持っている必要がある。　　
+トークンを発行するのは自分のgithubアカウント。
+
+[コンテナレジストリの利用 - GitHub Docs](https://docs.github.com/ja/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+
+```bash
+export CR_PAT=<YOUR_TOKEN>
+echo $CR_PAT | docker login ghcr.io -u coias --password-stdin
+```
+
+4. docker pushを行う。
+
+```
+docker push ghcr.io/coias/coias-front-app
+docker push ghcr.io/coias/coias-back-app
+```
