@@ -6,7 +6,7 @@ services:
     build:
       context: ./coias-front-app/
       dockerfile: ./Docker/Dockerfile
-    image: mizunanari/coias-front-dev-app:latest
+    image: coias/coias-front-app:latest
     ports:
       - 127.0.0.1:3000:3000
     tty: true
@@ -17,7 +17,7 @@ services:
     build:
       context: ./coias-back-app/
       dockerfile: ./Docker/Dockerfile
-    image: mizunanari/coias-back-dev-app:latest
+    image: coias/coias-back-app:latest
     ports:
       - 127.0.0.1:8000:8000
     tty: true
