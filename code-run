@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git clone https://github.com/coias/coias-docker-compose.git --depth 1
+mv coias-docker-compose coias-app
+cd coias-app
+docker-compose up -d

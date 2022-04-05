@@ -51,10 +51,10 @@ https://azure.microsoft.com/ja-jp/products/visual-studio-code/
 coias アプリケーションのクローン
 
 WSLで以下コマンドを実行  
-```curl -sfhttps://raw.githubusercontent.com/aizulab/coias-docker-compose/main/code-clone | sh -s```
+```curl -sfhttps://raw.githubusercontent.com/coias/coias-docker-compose/main/code-clone | sh -s```
 
-フロントエンド「coias-front-app  
-バックエンド「COIAS_program_github」のコード群がVScodeで開かれる
+フロントエンド「coias-front-app」
+バックエンド「coias-back-app」のコード群がVScodeで開かれる
 
 ### docker コンテナで開く
 
@@ -68,7 +68,7 @@ WSLで以下コマンドを実行
 1. VScodeで「実行とデバッグ」タブを開く
 2. 再生ボタンを押して実行する。
 
-上記の作業を「coias-front-app」「COIAS_program_github」それぞれに対して行う。
+上記の作業を「coias-front-app」「coias-back-app」それぞれに対して行う。
 
 ![image4](./image/windows_docker_Desktop_install/image3.png)
 
