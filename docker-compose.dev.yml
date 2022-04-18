@@ -12,7 +12,7 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - ./coias-front-app/:/opt/coias-front-app
+      - ./coias-front-app/:/opt/coias-front-app:delegated
       - node_modules_volume:/opt/coias-front-app/node_modules
 
   back-dev-app:
