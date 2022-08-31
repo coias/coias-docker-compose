@@ -11,7 +11,7 @@ docker,docker-composeを使用し、フロントエンドアプリ、バック�
 
 実行用のdocker-composeです。  
 アプリケーションの実行のみを行う場合に使用します。  
-[実行用環境構築](./docs/実行用環境構築.md)
+[実行用環境構築](./doc/実行用環境構築.md)
 
 ```docker-compose up```
 
@@ -19,4 +19,4 @@ docker,docker-composeを使用し、フロントエンドアプリ、バック�
 
 開発用のdocker-composeです。  
 アプリケーションの開発を行う場合に使用します。  
-[開発用環境構築](./docs/開発用環境構築.md)
+[開発用環境構築](./doc/開発用環境構築.md)
