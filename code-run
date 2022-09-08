@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -e `pwd`/coias-app ]; then
+if [ ! -e `pwd`/coias-app ]; then
     git clone https://github.com/coias/coias-docker-compose.git --depth 1
     mv coias-docker-compose coias-app
     cd coias-app
