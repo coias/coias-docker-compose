@@ -30,6 +30,18 @@ services:
       - nginx_tmp_images:/opt/tmp_images
       - coias_hsc:/root/.coias
 
+  db:
+    container_name: coias-db-dev-container
+    image: 'mariadb:10'
+    platform: linux/x86_64
+    volumes:
+      - ./database:/var/lib/mysql:delegated
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'yes'
+      MARIADB_DATABASE: COIAS
+      MARIADB_USER: dataHandler
+      MARIADB_PASSWORD: password
+
   imagehost-dev-app:
     image: "nginx:latest"
     ports:
