@@ -1,9 +1,10 @@
 #!/bin/bash
 
-git clone https://github.com/coias/coias-docker-compose.git
+git clone https://github.com/coias/web-coias-docker-compose.git
 cd coias-docker-compose
-git clone https://github.com/coias/coias-front-app.git
-git clone https://github.com/coias/coias-back-app.git
+git clone https://github.com/coias/web-coias-front-app.git
+git clone https://github.com/coias/web-coias-front-page.git
+git clone https://github.com/coias/web-coias-back-app.git
 
 chmod +x code-open
 ./code-open

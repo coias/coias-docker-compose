@@ -1,17 +1,45 @@
-version: '3'
+version: "3"
+
+volumes:
+  nginx_tmp_images:
+  app_node_modules_volume:
+  page_node_modules_volume:
+  mysql_data:
+    driver: local
 
 services:
   front-app:
     container_name: coias-front-container
-    image: ghcr.io/coias/coias-front-app:latest
+    # image: web-coias-front-app
+    build:
+      context: ./web-coias-front-app
+      dockerfile: ./Dockerfile
     ports:
-      - 127.0.0.1:3000:3000
+      - 3000:3000
     tty: true
     platform: linux/x86_64
+    volumes:
+      - app_node_modules_volume:/opt/web-coias-front-app/node_modules
+
+  front-page:
+    container_name: coias-front-page-container
+    # image: web-coias-front-app
+    build:
+      context: ./web-coias-front-page
+      dockerfile: ./Dockerfile
+    ports:
+      - 3001:3001
+    tty: true
+    platform: linux/x86_64
+    volumes:
+      - page_node_modules_volume:/opt/web-coias-front-page/node_modules
 
   back-app:
     container_name: coias-back-container
-    image: ghcr.io/coias/coias-back-app:latest
+    # image: web-coias-back-app
+    build:
+      context: ./web-coias-back-app
+      dockerfile: ./Dockerfile
     ports:
       - 127.0.0.1:8000:8000
     tty: true
@@ -21,7 +49,7 @@ services:
 
   imagehost:
     container_name: coias-imagehost-container
-    build: 
+    build:
       context: ./imagehost
       dockerfile: ./Dockerfile
     ports:
@@ -29,5 +57,34 @@ services:
     volumes:
       - "nginx_tmp_images:/usr/share/nginx/html"
 
-volumes:
-  nginx_tmp_images:
+  mysql:
+    container_name: coias-mysql
+    image: mysql:5.7
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - ./mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: COIAS
+      MYSQL_USER: dataHandler
+      MYSQL_PASSWORD: password
+    ports:
+      - 3306:3306
+
+  keycloak:
+    container_name: coias-keycloak
+    image: quay.io/keycloak/keycloak:legacy
+    environment:
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: coiaskeycloak
+      DB_USER: root
+      DB_PASSWORD: root
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the MySQL JDBC driver documentation in order to use it.
+      #JDBC_PARAMS: "connectTimeout=30000"
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-code coias-front-app
-code coias-back-app
+code web-coias-front-app
+code web-coias-back-app

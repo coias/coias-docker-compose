@@ -4,29 +4,43 @@ services:
   front-dev-app:
     container_name: coias-front-dev-container
     build:
-      context: ./coias-front-app/
-      dockerfile: ./Docker/Dockerfile.dev
+      context: ./web-coias-front-app/
+      dockerfile: ./Dockerfile.dev
     image: coias-front-dev-app
     ports:
       - 127.0.0.1:3000:3000
     tty: true
     platform: linux/x86_64
     volumes:
-      - ./coias-front-app/:/opt/coias-front-app:delegated
-      - node_modules_volume:/opt/coias-front-app/node_modules
+      - ./web-coias-front-app/:/opt/web-coias-front-app:delegated
+      - app_node_modules_volume:/opt/web-coias-front-app/node_modules
+  
+  front-dev-page:
+    container_name: coias-front-page-container
+    # image: web-coias-front-app
+    build:
+      context: ./web-coias-front-page
+      dockerfile: ./Dockerfile
+    ports:
+      - 127.0.0.1:3001:3000
+    tty: true
+    platform: linux/x86_64
+    volumes:
+      - ./web-coias-front-page/:/opt/web-coias-front-page:delegated
+      - page_node_modules_volume:/opt/web-coias-front-page/node_modules
 
   back-dev-app:
     container_name: coias-back-dev-container
     build:
-      context: ./coias-back-app/
-      dockerfile: ./Docker/Dockerfile.dev
+      context: ./web-coias-back-app/
+      dockerfile: ./Dockerfile.dev
     image: coias-back-dev-app
     ports:
       - 127.0.0.1:8000:8000
     tty: true
     platform: linux/x86_64
     volumes:
-      - ./coias-back-app:/opt/coias-back-app
+      - ./web-coias-back-app:/opt/web-coias-back-app
       - nginx_tmp_images:/opt/tmp_images
       - coias_hsc:/root/.coias
 
@@ -38,7 +52,41 @@ services:
       - "nginx_tmp_images:/usr/share/nginx/html"
       - "./imagehost/nginx:/etc/nginx"
 
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - ./mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: COIAS
+      MYSQL_USER: dataHandler
+      MYSQL_PASSWORD: password
+    ports:
+      - 3306:3306
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:legacy
+    environment:
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: COIAS
+      DB_USER: dataHandler
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the MySQL JDBC driver documentation in order to use it.
+      #JDBC_PARAMS: "connectTimeout=30000"
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+
 volumes:
-  node_modules_volume:
+  nginx_tmp_images:
+  app_node_modules_volume:
+  page_node_modules_volume:
   nginx_tmp_images:
   coias_hsc:
+  mysql_data:
+    driver: local
