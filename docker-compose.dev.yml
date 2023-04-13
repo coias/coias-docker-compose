@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   front-dev-app:
@@ -14,7 +14,7 @@ services:
     volumes:
       - ./web-coias-front-app/:/opt/web-coias-front-app:delegated
       - app_node_modules_volume:/opt/web-coias-front-app/node_modules
-  
+
   front-dev-page:
     container_name: coias-front-page-container
     # image: web-coias-front-app
@@ -53,6 +53,7 @@ services:
       - "./imagehost/nginx:/etc/nginx"
 
   mysql:
+    container_name: coias-mysql
     image: mysql:5.7
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
@@ -66,13 +67,14 @@ services:
       - 3306:3306
 
   keycloak:
+    container_name: coias-keycloak
     image: quay.io/keycloak/keycloak:legacy
     environment:
       DB_VENDOR: MYSQL
       DB_ADDR: mysql
-      DB_DATABASE: COIAS
-      DB_USER: dataHandler
-      DB_PASSWORD: password
+      DB_DATABASE: coiaskeycloak
+      DB_USER: root
+      DB_PASSWORD: root
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: Pa55w0rd
       # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the MySQL JDBC driver documentation in order to use it.
@@ -86,7 +88,6 @@ volumes:
   nginx_tmp_images:
   app_node_modules_volume:
   page_node_modules_volume:
-  nginx_tmp_images:
   coias_hsc:
   mysql_data:
     driver: local
