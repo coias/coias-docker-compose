@@ -4,7 +4,7 @@ services:
   front-dev-app:
     container_name: coias-front-dev-container
     build:
-      context: ./web-coias-front-app/
+      context: ./web-coias-front-app
       dockerfile: ./Dockerfile.dev
     image: coias-front-dev-app
     ports:
@@ -16,11 +16,11 @@ services:
       - app_node_modules_volume:/opt/web-coias-front-app/node_modules
 
   front-dev-page:
-    container_name: coias-front-page-container
-    # image: web-coias-front-app
+    container_name: coias-front-page-dev-container
     build:
       context: ./web-coias-front-page
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile.dev
+    image: coias-front-page-dev-app
     ports:
       - 127.0.0.1:3001:3001
     tty: true
@@ -32,7 +32,7 @@ services:
   back-dev-app:
     container_name: coias-back-dev-container
     build:
-      context: ./web-coias-back-app/
+      context: ./web-coias-back-app
       dockerfile: ./Dockerfile.dev
     image: coias-back-dev-app
     ports:
