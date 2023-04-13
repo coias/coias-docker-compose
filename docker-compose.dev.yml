@@ -22,7 +22,7 @@ services:
       context: ./web-coias-front-page
       dockerfile: ./Dockerfile
     ports:
-      - 127.0.0.1:3001:3000
+      - 127.0.0.1:3001:3001
     tty: true
     platform: linux/x86_64
     volumes:
