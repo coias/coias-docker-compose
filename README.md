@@ -8,7 +8,7 @@ docker,docker-compose を使用し、フロントエンドアプリ、バック�
 /docs に詳しくのっています。
 
 ## 必要事項
-
+- `. ./code-clone` を実行し、web-coias-front-app, web-coias-front-page, web-coias-front-backをこのディレクトリ配下にクローンする
 - https://drive.google.com/drive/folders/1reoBxS-flvlzH1cV9r23htTC_N2RyTaH?usp=share_link
 - ここから sql.zip を、coias-docker-compose/直下に解凍して配置する。アクセス権限が必要なため、開発環境動かしたい方権限リクエストをお願いします。
 
@@ -18,9 +18,8 @@ docker,docker-compose を使用し、フロントエンドアプリ、バック�
 アプリケーションの実行のみを行う場合に使用します。  
 [実行用環境構築](./doc/実行用環境構築.md)
 
-`docker-compose up -d`
-
-のみで立ち上がります。
+1. front-app, page, back3つのブランチをprodブランチにチェックアウトする
+2. `docker-compose up -d`
 
 ### docker-compose.dev.yml
 
