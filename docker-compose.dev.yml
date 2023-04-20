@@ -40,8 +40,8 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - ./web-coias-back-app:/opt/web-coias-back-app
-      - nginx_tmp_images:/opt/tmp_images
+      - ./web-coias-back-app:/home/COIASusers/web-coias-back-app
+      - nginx_tmp_images:/home/COIASusers/tmp_images
       - coias_hsc:/root/.coias
 
   imagehost-dev-app:

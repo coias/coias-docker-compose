@@ -14,12 +14,11 @@ services:
     build:
       context: ./web-coias-front-app
       dockerfile: ./Dockerfile
-    ports:
-      - 3000:3000
     tty: true
     platform: linux/x86_64
     volumes:
       - app_node_modules_volume:/opt/web-coias-front-app/node_modules
+      - ./web-coias-front-app/build:/opt/web-coias-front-app/build
 
   front-page:
     container_name: coias-front-page-container
@@ -27,12 +26,11 @@ services:
     build:
       context: ./web-coias-front-page
       dockerfile: ./Dockerfile
-    ports:
-      - 3001:3001
     tty: true
     platform: linux/x86_64
     volumes:
       - page_node_modules_volume:/opt/web-coias-front-page/node_modules
+      - ./web-coias-front-page/build:/opt/web-coias-front-page/build
 
   back-app:
     container_name: coias-back-container
@@ -56,6 +54,8 @@ services:
       - "8088:80"
     volumes:
       - "nginx_tmp_images:/usr/share/nginx/html"
+      - ./web-coias-front-app/build:/usr/share/nginx/app
+      - ./web-coias-front-page/build:/usr/share/nginx/html
 
   mysql:
     container_name: coias-mysql
