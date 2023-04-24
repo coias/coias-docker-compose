@@ -17,8 +17,8 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - app_node_modules_volume:/opt/web-coias-front-app/node_modules
-      - ./web-coias-front-app/build:/opt/web-coias-front-app/build
+      - app_node_modules_volume:/home/COIASUsers/web-coias-front-app/node_modules
+      - ./web-coias-front-app/build:/home/COIASUsers/web-coias-front-app/build
 
   front-page:
     container_name: coias-front-page-container
@@ -29,8 +29,8 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - page_node_modules_volume:/opt/web-coias-front-page/node_modules
-      - ./web-coias-front-page/build:/opt/web-coias-front-page/build
+      - page_node_modules_volume:/home/COIASUsers/web-coias-front-page/node_modules
+      - ./web-coias-front-page/build:/home/COIASUsers/web-coias-front-page/build
 
   back-app:
     container_name: coias-back-container
@@ -43,7 +43,7 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - nginx_tmp_images:/opt/tmp_images
+      - nginx_tmp_images:/home/COIASUsers/tmp_images
 
   imagehost:
     container_name: coias-imagehost-container

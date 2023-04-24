@@ -12,8 +12,8 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - ./web-coias-front-app/:/opt/web-coias-front-app:delegated
-      - app_node_modules_volume:/opt/web-coias-front-app/node_modules
+      - ./web-coias-front-app/:/home/COIASUsers/web-coias-front-app:delegated
+      - app_node_modules_volume:/home/COIASUsers/web-coias-front-app/node_modules
 
   front-dev-page:
     container_name: coias-front-page-dev-container
@@ -26,8 +26,8 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - ./web-coias-front-page/:/opt/web-coias-front-page:delegated
-      - page_node_modules_volume:/opt/web-coias-front-page/node_modules
+      - ./web-coias-front-page/:/home/COIASUsers/web-coias-front-page:delegated
+      - page_node_modules_volume:/home/COIASUsers/web-coias-front-page/node_modules
 
   back-dev-app:
     container_name: coias-back-dev-container
@@ -40,8 +40,8 @@ services:
     tty: true
     platform: linux/x86_64
     volumes:
-      - ./web-coias-back-app:/home/COIASusers/web-coias-back-app
-      - nginx_tmp_images:/home/COIASusers/tmp_images
+      - ./web-coias-back-app:/home/COIASUsers/web-coias-back-app
+      - nginx_tmp_images:/home/COIASUsers/tmp_images
       - coias_hsc:/root/.coias
 
   imagehost-dev-app:
