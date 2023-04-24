@@ -9,8 +9,8 @@ docker,docker-compose を使用し、フロントエンドアプリ、バック�
 
 ## 事前にやっておくこと
 
-- https://drive.google.com/drive/folders/1reoBxS-flvlzH1cV9r23htTC_N2RyTaH?usp=share_link
-- ここから sql.zip を、coias-docker-compose/直下に解凍して配置する。アクセス権限が必要なため、開発環境動かしたい方権限リクエストをお願いします。
+- `. ./code-clone` を実行し、web-coias-front-app, web-coias-front-page, web-coias-front-back をこのディレクトリ配下にクローンする
+- [ここから](https://drive.google.com/drive/folders/1reoBxS-flvlzH1cV9r23htTC_N2RyTaH?usp=share_link)sql.zip を、coias-docker-compose/直下に解凍して配置する。アクセス権限が必要なため、開発環境動かしたい方権限リクエストをお願いします。
 
 ## 実行のみをするとき
 
