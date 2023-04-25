@@ -41,7 +41,7 @@ services:
     platform: linux/x86_64
     volumes:
       - ./web-coias-back-app:/home/COIASusers/web-coias-back-app
-      - nginx_tmp_images:/home/COIASusers/tmp_images
+      - nginx_tmp_images:/usr/share/nginx/userimages
       - coias_hsc:/root/.coias
 
   imagehost-dev-app:
